@@ -1,0 +1,35 @@
+version: "3.8"
+services:
+  rabbitmq:
+    image: rabbitmq:3.9-management
+
+    ports:
+      # AMQP protocol port
+      - "5672:5672"
+      # HTTP management UI
+      - "15672:15672"
+    healthcheck:
+      test: rabbitmq-diagnostics -q ping
+      interval: 10s
+      timeout: 5s
+      retries: 2
+
+  pvsim:
+    build: .
+    image: pvsim:latest
+
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+
+    environment:
+      - MQTT_HOST=rabbitmq
+      - QUEUE_NAME=meter
+      - FILE_PATH=/app/out2
+      - FILENAME=meter.csv
+      - LATITUDE=33.6
+      - LONGITUDE=10.8
+      - TIMEZONE=1
+
+    volumes:
+      - ./out2/:/app/out2:rw
