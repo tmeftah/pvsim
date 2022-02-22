@@ -54,8 +54,8 @@ docker run -d -it --rm --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3.9-
 than run the following scripts
 
 ```python
-python meter.py # run the meter
-python pvsim.py # run PV simulator
+python meter.py
+python pvsim.py
 ```
 
 after a while you get a **meter.csv** file under **/out** folder.
