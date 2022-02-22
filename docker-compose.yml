@@ -25,11 +25,11 @@ services:
     environment:
       - MQTT_HOST=rabbitmq
       - QUEUE_NAME=meter
-      - FILE_PATH=/app/out2
+      - FILE_PATH=/app/out
       - FILENAME=meter.csv
       - LATITUDE=33.6
       - LONGITUDE=10.8
       - TIMEZONE=1
 
     volumes:
-      - ./out2/:/app/out2:rw
+      - ./out/:/app/out:rw
