@@ -30,7 +30,7 @@ python3 -m venv venv
 activate the virtual environment
 
 ```shell
-source /venv/bin/activate
+source venv/bin/activate
 ```
 
 and install all the dependencies
@@ -42,17 +42,24 @@ pip install -r requirements.txt
 run rabbitmq docker container first
 
 ```shell
-docker run -it --rm --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3.9-management
+docker run -d -it --rm --name rabbitmq -p 5672:5672 -p 15672:15672 rabbitmq:3.9-management
 ```
 
 than run the following scripts
 
 ```python
 python meter.py # run the meter
-python simpv.py # run PV simulator
+python pvsim.py # run PV simulator
 ```
 
 after a while you get a **meter.csv** file under **/out** folder.
+
+stop the container
+
+```shell
+docker stop rabbitmq
+```
+
 <br/><br/>
 
 # Docker compose Mode
