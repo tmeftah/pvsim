@@ -19,6 +19,12 @@ change the workdir
 cd pvsim/
 ```
 
+create output folder
+
+```shell
+mkdir out
+```
+
 # Console mode
 
 create virtual environment
