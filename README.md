@@ -60,6 +60,13 @@ python pvsim.py
 
 after a while you get a **meter.csv** file under **/out** folder.
 
+the generated file contains in the following order:
+
+- timestamp
+- meter values in watt
+- PV simulator values watt
+- Sum of both in watt
+
 stop the container
 
 ```shell
@@ -77,6 +84,13 @@ docker-compose up -d
 ```
 
 after a while you get a **meter.csv** file under **/out** folder.
+
+the generated file contains in the following order:
+
+- timestamp
+- meter values in watt
+- PV simulator values watt
+- Sum of both in watt
 
 you can now stop the containers
 
@@ -107,7 +121,7 @@ it simulate the meter. It sends every second a random value to RabbitMQ with a t
     }
 ```
 
-in the for loop 86400 is equal to 24h _ 60min _ 60sec.
+in the for loop 86400 is equal to 24h x 60min x 60sec.
 you can set the sleep value the decrease the frequency of send random meter value.
 
 ```python
