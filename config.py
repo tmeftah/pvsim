@@ -16,8 +16,8 @@ class SimPvConfig(MQTT):
     FILE_PATH = os.environ.get("FILE_PATH") or "./out"
 
     # SunPos
-    LATITUDE = float(os.environ.get("LATITUDE")) or 33.6
-    LONGITUDE = float(os.environ.get("LONGITUDE")) or 10.8
-
-    LOCATION = (LATITUDE, LONGITUDE)
-    TIMEZONE = int(os.environ.get("TIMEZONE")) or 1
+    LATITUDE = os.environ.get("LATITUDE") or 33.6
+    LONGITUDE = os.environ.get("LONGITUDE") or 10.8
+    TIMEZONE = os.environ.get("TIMEZONE") or 1
+    LOCATION = (float(LATITUDE), float(LONGITUDE))
+    TIMEZONE = int(TIMEZONE)
